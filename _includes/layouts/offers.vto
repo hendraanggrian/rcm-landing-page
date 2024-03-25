@@ -1,0 +1,61 @@
+---
+layout: ./base.vto
+page_css: offers.css
+---
+
+<main class="offers">
+  <header class="offers-header">
+    <h1>{{ title }}</h1>
+    {{ description |> md }}
+  </header>
+
+  <ul class="offers-sites">
+    {{ for site of sites }}
+    {{ if site.img }}
+    <li>
+      <figure class="site">
+        <a href="{{ site.url }}" class="site-image">
+          <img src="{{ site.img }}" alt="Screenshot of the site" width="300" height="200">
+        </a>
+        <figcaption class="site-description">
+          <p>
+            {{ if site.code }}
+              <a class="button is-secondary is-small" href="{{ site.code }}">View code</a>
+            {{ /if }}
+
+            <a href="{{ site.url }}" class="site-name">
+              {{ site.title }}
+            </a>
+          </p>
+
+          {{ site.description |> md }}
+        </figcaption>
+      </figure>
+    </li>
+    {{ /if }}
+    {{ /for }}
+  </ul>
+
+  <section class="offers-more">
+    <h2>More examples</h2>
+
+    <ul>
+      {{ for site of sites }}
+      {{ if !site.img }}
+      <li class="site-description">
+        <p>
+          <a href="{{ site.url }}" class="site-name">
+            {{ site.title }}
+          </a>
+          {{ if site.code }}
+            <a class="button is-secondary is-small" href="{{ site.code }}">View code</a>
+          {{ /if }}
+        </p>
+
+        {{ site.description |> md }}
+      </li>
+      {{ /if }}
+      {{ /for }}
+    </ul>
+  </section>
+</main>

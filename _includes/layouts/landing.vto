@@ -6,24 +6,21 @@ page_css: landing.css
   <header class="landing-header">
     <h1>{{ header.title }}</h1>
 
-    <figure class="landing-header-fire">
-      {{ await comp.fire() }}
+    <figure class="landing-header-coins">
+      {{ await comp.coins() }}
     </figure>
 
     <div class="landing-install">
       {{ install.title |> md }}
 
-      <div class="terminal">
+      <div class="landing-install-code">
         <pre><code>{{ install.code }}</code></pre>
-        <a class="terminal-cta" href="{{ install.url }}" aria-label="Continue to Getting Started">
-          <img src="/icons/arrow-right.svg" inline>
+        <a class="landing-install-cta" href="{{ install.url }}" aria-label="Continue to Getting Started">
+          <img src="/icons/arrow_right.svg" inline>
         </a>
       </div>
-
-      <a href="https://deno.land/x/lume"><img src="https://shield.deno.dev/x/lume" alt="deno.land/x/lume" width="144" height="20"></a>
     </div>
   </header>
-
 
   <section class="landing-usage">
   {{ for block of usage }}
@@ -35,6 +32,15 @@ page_css: landing.css
       {{ block.code |> md }}
     </div>
   {{ /for }}
+  </section>
+
+  <section class="landing-inventory">
+    <div class="landing-install-code">
+      <pre><code>View RCM's full inventory</code></pre>
+      <a class="landing-install-cta" href="{{ examples.inventory_url }}" aria-label="Continue to Getting Started">
+        <img src="/icons/arrow_right.svg" inline>
+      </a>
+    </div>
   </section>
 
   <ul class="landing-features">
@@ -53,17 +59,17 @@ page_css: landing.css
 
       <lume-carousel-controls target="#examples" class="lume-carousel-buttons">
         <button value="prev" class="button is-secondary has-icon" aria-label="Previous examples">
-          <img src="/icons/arrow-left.svg" inline>
+          <img src="/icons/arrow_left.svg" inline>
         </button>
         <button value="next" class="button is-secondary has-icon" aria-label="Next examples">
-          <img src="/icons/arrow-right.svg" inline>
+          <img src="/icons/arrow_right.svg" inline>
         </button>
       </lume-carousel-controls>
     </header>
 
-    <lume-carousel role="region" aria-label="Showcase" tabindex="0" class="landing-examples-sites" id="examples">
-      {{ set showcase = search.page("url=/showcase/") }}
-      {{ for site of showcase.sites.filter((site) => site.img).slice(0, 8) }}
+    <lume-carousel role="region" aria-label="Offers" tabindex="0" class="landing-examples-sites" id="examples">
+      {{ set offers = search.page("url=/offers/") }}
+      {{ for site of offers.sites.filter((site) => site.img).slice(0, 8) }}
       <figure class="site">
         <a href="{{ site.url }}" class="site-image">
           <img src="{{ site.img }}" alt="Screenshot of the site" width="300" height="200">
@@ -79,7 +85,6 @@ page_css: landing.css
         </figcaption>
       </figure>
       {{ /for }}
-      <a href="{{ examples.more.href }}" class="landing-examples-cta">{{ examples.more.text }}</a>
     </lume-carousel>
   </section>
 
@@ -98,7 +103,7 @@ page_css: landing.css
             <img src="{{ item.avatar }}" srcset="{{ item.avatar }}, {{ item.avatar |> replace(".webp", "@2x.webp") }} 2x" width="50" height="50" alt="{{ item.author }}">
             <a href="{{ item.url }}">
               <strong>{{ item.author }}</strong>
-              <time>{{ item.date }}</time>
+              <time>{{ item.title }}</time>
             </a>
           </figcaption>
         </figure>
@@ -109,7 +114,7 @@ page_css: landing.css
             <img src="{{ item.avatar }}" srcset="{{ item.avatar }}, {{ item.avatar |> replace(".webp", "@2x.webp") }} 2x" width="50" height="50" alt="{{ item.author }}">
             <a href="{{ item.url }}">
               <strong>{{ item.author }}</strong>
-              <time>{{ item.date }}</time>
+              <time>{{ item.title }}</time>
             </a>
           </footer>
         </article>
@@ -120,7 +125,7 @@ page_css: landing.css
             <img src="{{ item.avatar }}" srcset="{{ item.avatar }}, {{ item.avatar |> replace(".webp", "@2x.webp") }} 2x" width="50" height="50" alt="{{ item.author }}">
             <a href="{{ item.url }}">
               <strong>{{ item.author }}</strong>
-              <time>{{ item.date }}</time>
+              <time>{{ item.title }}</time>
             </a>
           </cite>
         </blockquote>
@@ -128,38 +133,5 @@ page_css: landing.css
       </li>
     {{ /for }}
     </ul>
-  </section>
-
-  <section class="landing-suppport">
-    <h2>{{ support.title }}</h2>
-
-    <div>
-      <ul class="landing-support-sponsors">
-        {{ for sponsor of support.sponsors }}
-        <li>
-          <a href="{{ sponsor.url }}" title="{{ sponsor.name }}">
-            <img src="{{ sponsor.img }}" srcset="{{ sponsor.img }}, {{ sponsor.img |> replace(".webp", "@2x.webp") }} 2x" height="100" width="100" alt="{{ sponsor.name }}">
-          </a>
-        </li>
-        {{ /for }}
-      </ul>
-      
-      <h3>{{ support.past_title }}</h3>
-      <ul class="landing-support-sponsors is-past">
-        {{ for sponsor of support.past_sponsors }}
-        <li>
-          <a href="{{ sponsor.url }}" title="{{ sponsor.name }}">
-            <img src="{{ sponsor.img }}" srcset="{{ sponsor.img }}, {{ sponsor.img |> replace(".webp", "@2x.webp") }} 2x" height="60" width="60" alt="{{ sponsor.name }}">
-          </a>
-        </li>
-        {{ /for }}
-      </ul>
-    </div>
-
-    <div class="landing-support-contribute">
-      <h3>{{ support.contribute.title }}</h3>
-
-      {{ support.contribute.description |> md }}
-    </div>
   </section>
 </div>

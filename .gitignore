@@ -1,3 +1,7 @@
 _site
 _cache
 deno.lock
+
+# IDEA
+*.iml
+.idea/

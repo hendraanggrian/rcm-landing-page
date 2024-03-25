@@ -39,6 +39,7 @@ export default class LumeCode extends HTMLElement {
         }
       });
     }
+
     showHideButtons();
   }
 }

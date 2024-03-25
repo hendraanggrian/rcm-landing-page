@@ -25,13 +25,12 @@ const markdown = {
 
 const site = lume(
   {
-    location: new URL("https://lume.land"),
+    location: new URL("https://hendraanggrian.github.io/rcm-landing-page"),
   },
   { markdown },
 );
 
 site
-  .ignore("CONTRIBUTING.md")
   .ignore("README.md")
   .ignore("velociraptor.json")
   .ignore("scripts")

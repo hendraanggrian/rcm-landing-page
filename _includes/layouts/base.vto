@@ -24,7 +24,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} - Lume</title>
+    <title>{{ title }} - RCM</title>
 
     <meta name="supported-color-schemes" content="light dark">
 
@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="/styles/critical.css" inline>
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="canonical" href="{{ url |> url(true) }}">
-    
+
     {{ if it.page_css }}
       <link rel="stylesheet" href="/styles/pages/{{ page_css }}">
     {{ /if }}
@@ -62,7 +62,7 @@
       src="https://cdn.jsdelivr.net/npm/@docsearch/js@3.2.1/dist/umd/index.js"
       integrity="sha256-7XYP2JLQrbyOqBKrAn8sT3l8PG/v2j6C3A5EyBDp9to="
       crossorigin="anonymous" defer></script>
-      
+
     <script type="text/javascript">
       window.addEventListener('DOMContentLoaded', () => {
         document.getElementById("switch-theme").addEventListener("click", (event) => {
@@ -83,10 +83,6 @@
           debug: false
         });
       }, false);
-    </script>
-    <script
-      onload="window.glime.init(`MGGBqQWxvDIBSQ`)"
-      src="https://cdn.glimelab.ai/widget/1.0.0/widget.js">
     </script>
   </body>
 </html>

@@ -174,6 +174,7 @@ export default class Carousel extends HTMLElement {
     this.scrollFromLeft = this.scrollWidth - this.clientWidth - scroll;
   }
 }
+
 function handleTarget(el, hash) {
   if (!hash) {
     return;

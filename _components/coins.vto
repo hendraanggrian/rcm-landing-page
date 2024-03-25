@@ -1,0 +1,133 @@
+<div class="coins">
+  <div class="coin"></div>
+  <div class="coin"></div>
+  <div class="coin"></div>
+  <div class="coin"></div>
+  <div class="coin"></div>
+  <div class="coin"></div>
+  <div class="coin"></div>
+  <div class="coin"></div>
+</div>
+
+<style>
+  .coins {
+    position: relative;
+    width: 12em;
+    height: 12em;
+    overflow: hidden;
+    border-radius: 100%;
+    filter: url(#coins-blur);
+  }
+  .coin,
+  .coin::after {
+    position: absolute;
+    border-radius: 100%;
+    animation-fill-mode: backwards;
+    animation-duration: 1.2s;
+    animation-timing-function: cubic-bezier(0.5, 0.07, 0.64, 1);
+    animation-iteration-count: infinite;
+  }
+  .coin {
+    left: 12%;
+    top: 0;
+    width: 5em;
+    height: 5em;
+    background: #e9b522;
+    animation-name: coinscircle;
+    will-change: transform;
+  }
+  .coin::after {
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #e9b522;
+    animation-name: coinsafter;
+    will-change: opacity;
+    opacity: 0;
+  }
+  .coin:nth-child(1),
+  .coin:nth-child(1)::after {
+    animation-delay: -0.14s;
+  }
+  .coin:nth-child(1) {
+    margin-left: 0.8em;
+    margin-bottom: -1em;
+  }
+  .coin:nth-child(2),
+  .coin:nth-child(2)::after {
+    animation-delay: -0.42s;
+  }
+  .coin:nth-child(2) {
+    margin-left: 3.8em;
+    margin-bottom: -1.8em;
+  }
+  .coin:nth-child(3),
+  .coin:nth-child(3)::after {
+    animation-delay: -0.7s;
+  }
+  .coin:nth-child(3) {
+    margin-left: 3.8em;
+    margin-bottom: -2.1em;
+  }
+  .coin:nth-child(4),
+  .coin:nth-child(4)::after {
+    animation-delay: -0.98s;
+  }
+  .coin:nth-child(4) {
+    margin-left: 4em;
+    margin-bottom: -2.2em;
+  }
+  .coin:nth-child(5),
+  .coin:nth-child(5)::after {
+    animation-delay: -1.26s;
+  }
+  .coin:nth-child(5) {
+    margin-left: 4.2em;
+    margin-bottom: -2em;
+  }
+  .coin:nth-child(6),
+  .coin:nth-child(6)::after {
+    animation-delay: -1.54s;
+  }
+  .coin:nth-child(6) {
+    margin-left: 3.8em;
+    margin-bottom: -2.2em;
+  }
+  .coin:nth-child(7),
+  .coin:nth-child(7)::after {
+    animation-delay: -1.82s;
+  }
+  .coin:nth-child(7) {
+    margin-left: 0.1em;
+    margin-bottom: -2.1em;
+  }
+  .coin:nth-child(8),
+  .coin:nth-child(8)::after {
+    animation-delay: -2.1s;
+  }
+  .coin:nth-child(8) {
+    margin-left: 0.9em;
+    margin-bottom: -1.6em;
+  }
+  @keyframes coinscircle {
+    0% {
+      background-image: url("/img/coin.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      transform: translateY(0) scale(1);
+    }
+    100% {
+      transform: translateY(11em) scale(0);
+    }
+  }
+  @keyframes coinsafter {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+</style>
