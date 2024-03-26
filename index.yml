@@ -112,7 +112,8 @@ testimonials:
   quotes:
     - url: mailto:dulce@revenueclickmedia.com
       author: Dulce Berrellez
-      avatar: /img/avatars/dulce.webp
+      # avatar: /img/avatars/dulce.webp
+      avatar: https://hendraanggrian.github.io/rcm-landing-page/img/avatars/dulce.webp
       title: Business Development Manager
       text: |
         <table>
@@ -143,7 +144,8 @@ testimonials:
         </table><br>
     - url: mailto:suvam@revenueclickmedia.com
       author: Suvam Ghimire
-      avatar: /img/avatars/suvam.webp
+      # avatar: /img/avatars/suvam.webp
+      avatar: https://hendraanggrian.github.io/rcm-landing-page/img/avatars/suvam.webp
       title: Senior Account Manager
       text: |
         <table>

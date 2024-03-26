@@ -10,23 +10,16 @@ import postcss from "lume/plugins/postcss.ts";
 import sitemap from "lume/plugins/sitemap.ts";
 import metas from "lume/plugins/metas.ts";
 import toc from "https://deno.land/x/lume_markdown_plugins@v0.6.0/toc/mod.ts";
-import analyze, {
-  mergeDefaults,
-} from "https://deno.land/x/aldara@v0.1.1/mod.ts";
 
 import ventoLang from "https://deno.land/x/vento@v0.10.2/highlightjs-vento.js";
 
 const markdown = {
   plugins: [toc],
-  options: {
-    linkify: true,
-  },
+  options: { linkify: true },
 };
 
 const site = lume(
-  {
-    location: new URL("https://hendraanggrian.github.io/rcm-landing-page"),
-  },
+  { location: new URL("https://hendraanggrian.github.io/rcm-landing-page") },
   { markdown },
 );
 
@@ -36,24 +29,16 @@ site
   .ignore("scripts")
   .copy("static", ".")
   .copy("_redirects")
-  .use(codeHighlight({
-    languages: {
-      vento: ventoLang,
-    },
-  }))
+  .use(codeHighlight({ languages: { vento: ventoLang } }))
   .use(postcss())
   .use(favicon())
   .use(inline())
   .use(metas())
-  .use(esbuild({
-    extensions: [".js"],
-  }))
+  .use(esbuild({ extensions: [".js"] }))
   .use(resolveUrls())
   .use(transformImages())
   .use(sitemap())
-  .scopedUpdates(
-    (path) => path.endsWith(".png") || path.endsWith(".jpg"),
-  )
+  .scopedUpdates((path) => path.endsWith(".png") || path.endsWith(".jpg"))
   .filter("slice", (arr, length) => arr.slice(0, length))
   .process([".html"], (pages) => {
     for (const page of pages) {
@@ -61,9 +46,7 @@ site
       const blocks = doc.querySelectorAll("lume-code");
 
       blocks.forEach((block, i) => {
-        const pres = block.querySelectorAll(
-          ":scope > pre",
-        );
+        const pres = block.querySelectorAll(":scope > pre");
 
         const menu = doc.createElement("ul");
         menu.setAttribute("role", "tablist");
@@ -105,27 +88,8 @@ site
     }
   })
   .use(minifyHTML({
-    options: {
-      minify_css: false, // https://github.com/wilsonzlin/minify-html/issues/173
-    },
+    // https://github.com/wilsonzlin/minify-html/issues/173
+    options: { minify_css: false },
   }));
-
-site.script("plugin-docs", [
-  "deno doc --json https://deno.land/x/lume/plugins/feed.ts",
-]);
-site.data("scheme", async (mod: string) => {
-  try {
-    const url = `https://deno.land/x/lume@v2.1.2/${mod}`;
-    const { defaults } = await import(url);
-    const { Options } = await analyze(url, { maxDepth: 2, private: false });
-
-    mergeDefaults(Options, defaults);
-    return Options.children;
-  } catch (error) {
-    console.log(`Error generating the documentation for ${mod}`);
-    console.log(error);
-    return [];
-  }
-});
 
 export default site;

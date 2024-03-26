@@ -11,5 +11,9 @@ insert_final_newline = true
 [*.{md, yml}]
 max_line_length = 80
 
+[*.{js, ts}]
+max_line_length = 80
+ij_continuation_indent_size = 4
+
 [*.{vto, html, css}]
 max_line_length = 500

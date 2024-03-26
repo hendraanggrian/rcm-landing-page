@@ -13,11 +13,14 @@ const userAgentString = navigator.userAgent;
 const chromeAgent = userAgentString.indexOf("Chrome") > -1;
 
 if (chromeAgent) {
-  const observer = new ReportingObserver((reports) => {
-    for (const report of reports) {
-      console.log(report.type, report.url, report.body);
-    }
-  }, { buffered: true });
+  const observer = new ReportingObserver(
+    (reports) => {
+      for (const report of reports) {
+        console.log(report.type, report.url, report.body);
+      }
+    },
+    { buffered: true },
+  );
 
   observer.observe();
 }

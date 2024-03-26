@@ -37,14 +37,14 @@
   @media (min-width: 1000px) {
     display: grid;
     grid-template-columns: minmax(620px, 1fr) 1fr;
-    grid-template-areas: "title fire" "install fire";
+    grid-template-areas: "title coins" "install coins";
     row-gap: var(--row-gap-0);
   }
 }
 .landing-header-coins {
   margin: 0;
   padding: 0;
-  grid-area: fire;
+  grid-area: coins;
   align-self: end;
   justify-self: center;
 

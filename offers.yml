@@ -4,22 +4,27 @@ description: The offers carousel.
 
 sites:
   - title: Offerwings
-    img: /img/offers/offerwings.webp
+    # img: /img/offers/offerwings.webp
+    img: https://hendraanggrian.github.io/rcm-landing-page/img/offers/offerwings.webp
     url: https://offerwings.com/
     description: Offerwings CPA/CPC
   - title: Paid Survey King
-    img: /img/offers/paidsurveyking.webp
+    # img: /img/offers/paidsurveyking.webp
+    img: https://hendraanggrian.github.io/rcm-landing-page/img/offers/paidsurveyking.webp
     url: https://paidsurveyking.com/
     description: Paid Survey King CPA/CPC
   - title: Deals to Insure
-    img: /img/offers/dealstoinsure.webp
+    # img: /img/offers/dealstoinsure.webp
+    img: https://hendraanggrian.github.io/rcm-landing-page/img/offers/dealstoinsure.webp
     url: https://dealstoinsure.com/
     description: Deals to Insure CPA/Coreg
   - title: SmartOpinion
-    img: /img/offers/smartopinion.webp
+    # img: /img/offers/smartopinion.webp
+    img: https://hendraanggrian.github.io/rcm-landing-page/img/offers/smartopinion.webp
     url: https://smartopinion.us/home
     description: SmartOpinion.US CPA/CPC
   - title: National Resource Connect
-    img: /img/offers/nationalresourceconnect.webp
+    # img: /img/offers/nationalresourceconnect.webp
+    img: https://hendraanggrian.github.io/rcm-landing-page/img/offers/nationalresourceconnect.webp
     url: https://www.nationalresourceconnect.com/home
     description: National Resource Connect CPA/CPC
