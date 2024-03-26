@@ -237,7 +237,7 @@
 }
 
 /** Testimonials */
-.landing-testimonials {
+.landing-team {
   grid-column: 1 / -1;
   background: var(--color-background-1);
   padding-top: var(--row-gap-1);
@@ -260,7 +260,7 @@
     margin-right: auto;
   }
 }
-.landing-testimonials-quotes {
+.landing-team-members {
   list-style: none;
   column-width: 300px;
   column-gap: var(--column-gap-1);
@@ -277,8 +277,8 @@
     max-width: 500px;
   }
 }
-.landing-testimonials-article,
-.landing-testimonials-quote {
+.landing-team-article,
+.landing-team-member {
   border-radius: var(--border-radius);
   margin: 0;
   background: var(--color-background);
@@ -290,7 +290,7 @@
     font: var(--text-caption);
   }
 }
-.landing-testimonials-article {
+.landing-team-article {
   & h3 {
     margin: 0;
 
@@ -302,7 +302,7 @@
     }
   }
 }
-.landing-testimonials-cover {
+.landing-team-cover {
   border-radius: var(--border-radius);
   margin: 0;
   background: var(--color-background);
@@ -353,7 +353,7 @@
     }
   }
 }
-.landing-testimonial-caption {
+.landing-team-caption {
   font: var(--text-caption-mini);
   color: var(--color-foreground-1);
   display: flex;

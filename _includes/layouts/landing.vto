@@ -88,48 +88,22 @@ page_css: landing.css
     </lume-carousel>
   </section>
 
-  <section class="landing-testimonials" id="testimonials">
-    <h2>{{ testimonials.title }}</h2>
+  <section class="landing-team" id="team">
+    <h2>{{ team.title }}</h2>
 
-    <ul class="landing-testimonials-quotes">
-    {{ for item of testimonials.quotes }}
+    <ul class="landing-team-members">
+    {{ for item of team.members }}
       <li>
-        {{ if item.type == "video" }}
-        <figure class="landing-testimonials-cover">
-          <a href="{{ item.url }}" class="is-video">
-            <img src="{{ item.cover }}" alt="{{ item.text }}" width="300" height="200">
-          </a>
-          <figcaption class="landing-testimonial-caption">
-            <img src="{{ item.avatar }}" srcset="{{ item.avatar }}, {{ item.avatar |> replace(".webp", "@2x.webp") }} 2x" width="50" height="50" alt="{{ item.author }}">
-            <a href="{{ item.url }}">
-              <strong>{{ item.author }}</strong>
-              <time>{{ item.title }}</time>
-            </a>
-          </figcaption>
-        </figure>
-        {{ else if item.type == "article" }}
-        <article class="landing-testimonials-article">
-          <h3><a href="{{ item.url }}">{{ item.text }}</a></h3>
-          <footer class="landing-testimonial-caption">
-            <img src="{{ item.avatar }}" srcset="{{ item.avatar }}, {{ item.avatar |> replace(".webp", "@2x.webp") }} 2x" width="50" height="50" alt="{{ item.author }}">
-            <a href="{{ item.url }}">
-              <strong>{{ item.author }}</strong>
-              <time>{{ item.title }}</time>
-            </a>
-          </footer>
-        </article>
-        {{ else }}
-        <blockquote class="landing-testimonials-quote">
+        <blockquote class="landing-team-member">
           {{ item.text |> md }}
-          <cite class="landing-testimonial-caption">
+          <cite class="landing-team-caption">
             <img src="{{ item.avatar }}" srcset="{{ item.avatar }}, {{ item.avatar |> replace(".webp", "@2x.webp") }} 2x" width="50" height="50" alt="{{ item.author }}">
-            <a href="{{ item.url }}">
-              <strong>{{ item.author }}</strong>
+            <a href="{{ item.email }}">
+              <strong>{{ item.name }}</strong>
               <time>{{ item.title }}</time>
             </a>
           </cite>
         </blockquote>
-        {{ /if }}
       </li>
     {{ /for }}
     </ul>
